@@ -10,19 +10,18 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var userNameTextfield: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
-    
-    //MARK: IB Actions
-    
     @IBAction func logInAction(_ sender: UIButton) {
+        if userNameTextfield.text == "User" && passwordTextField.text == "Password" {
+            performSegue(withIdentifier: "nextView", sender: nil)
+        } else {
+            showAlert(title: "Invalid login or password", message: "Please, enter correct login and password")
+        }
     }
     
     @IBAction func forgotUserNameAction() {
